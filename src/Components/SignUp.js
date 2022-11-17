@@ -3,30 +3,27 @@ import { useState } from "react";
 import { customPOST } from "../utilities";
 
 export default function SignUp() {
-const [userName, setUserName] = useState('');
-const [password, setPassword] = useState('');
-const [confirmPassword, setConfirmPassword] = useState('');
+  const [userName, setUserName] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
 
-const navigate = useNavigate();
+  const navigate = useNavigate();
 
-function onSubmit(event) {
-  event.preventDefault();
+  function onSubmit(event) {
+    event.preventDefault();
 
-  const request = {
-    userName: userName,
-    password: password,
-    confirmPassword:confirmPassword
-  };
+    const request = {
+      userName: userName,
+      password: password,
+      confirmPassword: confirmPassword
+    };
 
-  customPOST('auth/signup',request)
-  .then((response)=> {
-    localStorage.setItem('token', response.data.token);
-    navigate('/dashboard');
-  });
-}
-
-
-
+    customPOST('auth/signup', request)
+      .then((response) => {
+        localStorage.setItem('token', response.data.token);
+        navigate('/dashboard');
+      });
+  }
 
   return (
     <>
@@ -35,7 +32,7 @@ function onSubmit(event) {
         <div className='card'>
           <div className='card-header'>Sign Up</div>
           <div className='card-body'>
-            <form  onSubmit={onSubmit}>
+            <form onSubmit={onSubmit}>
               <div className='mb-3'>
                 <label htmlFor='userName' className='form-label'>
                   Email address
@@ -45,7 +42,7 @@ function onSubmit(event) {
                   className='form-control'
                   id='userName'
                   value={userName}
-                  onChange={(event)=> setUserName(event.target.value)}
+                  onChange={(event) => setUserName(event.target.value)}
                 />
               </div>
               <div className='mb-3'>
@@ -58,7 +55,7 @@ function onSubmit(event) {
                   id='password'
                   autoComplete='on'
                   value={password}
-                  onChange={(event)=> setPassword(event.target.value)}
+                  onChange={(event) => setPassword(event.target.value)}
                 />
               </div>
               <div className='mb-3'>
@@ -71,7 +68,7 @@ function onSubmit(event) {
                   id='confirmPassword'
                   autoComplete='on'
                   value={confirmPassword}
-                  onChange={(event)=> setConfirmPassword(event.target.value)}
+                  onChange={(event) => setConfirmPassword(event.target.value)}
                 />
               </div>
               <button type='submit' className='btn btn-primary'>
