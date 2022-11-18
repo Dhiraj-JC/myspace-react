@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl = "http://localhost:8000/";
+const baseUrl = "https://myspace22222222.herokuapp.com/";
 
 export function customGET(url) {
     const token = localStorage.getItem('token');
