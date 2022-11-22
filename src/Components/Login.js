@@ -32,7 +32,7 @@ export default function Login() {
         navigate('/dashboard');
       })
       .catch((error) => {
-        window.alert('Username or password is incorrect');
+        window.alert(error.response.data.message);
       })
   }
 
