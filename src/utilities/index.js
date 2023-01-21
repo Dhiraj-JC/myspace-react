@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // const baseUrl = "https://myspace22222222.herokuapp.com/";
-const baseUrl = "http://localhost:8000/";
+const baseUrl = "https://simplenodeexpressapp.onrender.com/";
 
 export function customGET(url) {
     const token = localStorage.getItem('token');
